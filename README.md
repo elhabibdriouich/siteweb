@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindUp - Turn Stress Into Success</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6C63FF, #00BFA6);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #FFD369;
+    }
+
+    .btn {
+      background: #FFD369;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 211, 105, 0.7);
+    }
+
+    .btn:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #6C63FF;
+      border: 2px solid #6C63FF;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(108, 99, 255, 0.1);
+    }
+
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+    }
+
+    .hero p {
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.6s forwards;
+    }
+
+    .hero-buttons {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.9s forwards;
+    }
+
+    .features {
+      background: #fff;
+      color: #333;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .features h3 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #6C63FF;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .feature-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .box {
+      background: #f9f9f9;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .box:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .box:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .box:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .box h4 {
+      margin-bottom: 15px;
+      color: #00BFA6;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #FFD369;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .about-card h3 {
+      color: #00BFA6;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    /* Join Us Section */
+    .join-us {
+      padding: 80px 20px;
+      background: #fff;
+      color: #333;
+      text-align: center;
+    }
+
+    .join-us h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #6C63FF;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+    }
+
+    .benefit-card {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 15px;
+      border-left: 5px solid #6C63FF;
+    }
+
+    .benefit-card h3 {
+      color: #6C63FF;
+      margin-bottom: 15px;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #6C63FF, #00BFA6);
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #FFD369;
+    }
+
+    .contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .contact-info {
+      text-align: left;
+    }
+
+    .contact-item {
+      margin-bottom: 25px;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #FFD369;
+      margin-top: 5px;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #6C63FF;
+      outline: none;
+    }
+
+    /* Contact Success Message */
+    .contact-success {
+      display: none;
+      background: #00BFA6;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .contact-success h3 {
+      margin-bottom: 10px;
+      color: #FFD369;
+    }
+
+    .cta {
+      background: linear-gradient(rgba(108, 99, 255, 0.9), rgba(108, 99, 255, 0.9)), 
+                  url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .cta h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.15);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .footer-section h3 {
+      color: #FFD369;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-section a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #FFD369;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      background: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #6C63FF;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      color: #333;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: modalFadeIn 0.5s ease-out;
+    }
+
+    .modal h2 {
+      color: #6C63FF;
+      margin-bottom: 20px;
+    }
+
+    .modal p {
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6C63FF;
+    }
+
+    .form-group input.error {
+      border-color: #ff4757;
+    }
+
+    .error-message {
+      color: #ff4757;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    /* Email Verification Styles */
+    .email-verification {
+      display: none;
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .email-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .verification-code {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .verification-code input {
+      width: 40px;
+      height: 50px;
+      text-align: center;
+      font-size: 1.5rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    .verification-code input:focus {
+      border-color: #6C63FF;
+      outline: none;
+    }
+
+    .verification-code input.error {
+      border-color: #ff4757;
+    }
+
+    /* Success message */
+    .success-message {
+      display: none;
+      background: #00BFA6;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    /* Email sent confirmation */
+    .email-sent-message {
+      display: none;
+      background: #e7f3ff;
+      color: #0066cc;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    /* Loading state */
+    .btn-loading {
+      position: relative;
+      color: transparent;
+    }
+
+    .btn-loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    /* Onboarding & Dashboard Styles */
+    .onboarding-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #6C63FF, #00BFA6);
+      z-index: 2000;
+      overflow-y: auto;
+    }
+
+    .onboarding-content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px;
+      background: white;
+      border-radius: 20px;
+      color: #333;
+      position: relative;
+    }
+
+    .onboarding-step {
+      display: none;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .onboarding-step.active {
+      display: block;
+    }
+
+    .step-progress {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .step-progress::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #e0e0e0;
+      z-index: 1;
+    }
+
+    .step-progress .progress-bar {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      height: 3px;
+      background: #6C63FF;
+      transition: width 0.3s ease;
+      z-index: 2;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 3;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .step.active .step-number {
+      background: #6C63FF;
+      color: white;
+    }
+
+    .step.completed .step-number {
+      background: #00BFA6;
+      color: white;
+    }
+
+    .step-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .step.active .step-label {
+      color: #6C63FF;
+    }
+
+    .onboarding-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    /* Questionnaire Styles */
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .question-option {
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .question-option:hover {
+      border-color: #6C63FF;
+    }
+
+    .question-option.selected {
+      border-color: #6C63FF;
+      background: rgba(108, 99, 255, 0.1);
+    }
+
+    .option-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* Dashboard Styles */
+    .dashboard-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 2000;
+      overflow-y: auto;
+    }
+
+    .dashboard-header {
+      background: linear-gradient(135deg, #6C63FF, #00BFA6);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .dashboard-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .dashboard-card {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .dashboard-card h3 {
+      color: #6C63FF;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .community-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px 0;
+      border-left: 4px solid #6C63FF;
+    }
+
+    .achievement-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108, 99, 255, 0.1);
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .progress-ring {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+    }
+
+    /* 7-Day Program Styles */
+    .program-day {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px 0;
+      border-left: 4px solid #00BFA6;
+    }
+
+    .day-completed {
+      border-left-color: #00BFA6;
+      background: rgba(0, 191, 166, 0.05);
+    }
+
+    .day-current {
+      border-left-color: #6C63FF;
+      background: rgba(108, 99, 255, 0.05);
+    }
+
+    .day-upcoming {
+      border-left-color: #e0e0e0;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+      }
+
+      nav {
+        margin: 15px 0;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      .feature-boxes,
+      .about-grid,
+      .benefits,
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .verification-code {
+        gap: 5px;
+      }
+      
+      .verification-code input {
+        width: 35px;
+        height: 45px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .onboarding-content {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .question-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MindUp</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#join">Join Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="btn" id="joinCommunityBtn">Join the Community</button>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Turn Stress Into Success</h2>
+      <p>MindUp is a platform where students and young professionals can share their struggles, set SMART goals, and grow together with a supportive community.</p>
+      <div class="hero-buttons">
+        <button class="btn" id="getStartedBtn">Get Started</button>
+        <button class="btn" id="learnMoreBtn" style="background:#fff;color:#6C63FF;margin-left:10px;">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <h3>What You Can Do</h3>
+    <div class="feature-boxes">
+      <div class="box">
+        <h4>🎯 Set SMART Goals</h4>
+        <p>Learn how to define clear, achievable objectives that keep you motivated and focused.</p>
+      </div>
+      <div class="box">
+        <h4>💬 Join the Community</h4>
+        <p>Connect with people who understand your journey and share tips, stories, and motivation.</p>
+      </div>
+      <div class="box">
+        <h4>🌱 Grow Personally & Professionally</h4>
+        <p>Balance your mental health and career goals through structured growth and self-awareness.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-content">
+      <h2>About MindUp</h2>
+      <p>MindUp is a revolutionary platform designed to help students and young professionals transform stress into stepping stones for success. We believe that with the right support system and tools, everyone can achieve their full potential.</p>
+      
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Our Mission</h3>
+          <p>To create a supportive ecosystem where young individuals can thrive mentally, emotionally, and professionally through community support and structured goal-setting.</p>
+        </div>
+        <div class="about-card">
+          <h3>Our Vision</h3>
+          <p>A world where no student or young professional feels alone in their struggles, and everyone has access to the tools and community needed to succeed.</p>
+        </div>
+        <div class="about-card">
+          <h3>Our Values</h3>
+          <p>Empathy, Growth, Community, Resilience, and Success through shared experiences and mutual support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join-us" id="join">
+    <h2>Join Our Community</h2>
+    <p style="max-width: 600px; margin: 0 auto 40px; line-height: 1.6;">Become part of a growing community of ambitious individuals who are turning their challenges into opportunities for growth.</p>
+    
+    <div class="benefits">
+      <div class="benefit-card">
+        <h3>🤝 Peer Support</h3>
+        <p>Connect with like-minded individuals who understand your journey and can offer valuable insights and encouragement.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>📈 Progress Tracking</h3>
+        <p>Monitor your growth with our intuitive tracking tools and celebrate every milestone along your journey.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🎯 Expert Guidance</h3>
+        <p>Access resources and guidance from mentors and professionals who have walked the path before you.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>💡 Weekly Challenges</h3>
+        <p>Participate in weekly growth challenges designed to push you out of your comfort zone in a supportive environment.</p>
+      </div>
+    </div>
+    
+    <button class="btn" id="joinSectionBtn" style="background: #6C63FF; color: white;">Join Now</button>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i>📧</i>
+          <div>
+            <h3>Email</h3>
+            <p>hello@mindup.com</p>
+            <p style="font-size: 0.9rem; color: #FFD369; margin-top: 5px;">(We'll reply within 24 hours)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i>📱</i>
+          <div>
+            <h3>Phone</h3>
+            <p>+212 778 513 583</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i>📍</i>
+          <div>
+            <h3>Address</h3>
+            <p>ENSEM, El Jadida Road <br>casablanca, Morocco</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i>🕒</i>
+          <div>
+            <h3>Hours</h3>
+            <p>Monday - Friday: 9AM - 6PM<br>Weekend: 10AM - 4PM</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <h3 style="color: #FFD369; margin-bottom: 20px;">Send us a Message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" placeholder="Your email" required>
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">Subject</label>
+            <input type="text" id="contactSubject" placeholder="Message subject" required>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" placeholder="Your message" required></textarea>
+          </div>
+          <button type="submit" class="btn" id="contactSubmitBtn" style="width: 100%; background: #FFD369; color: #000;">Send Message</button>
+        </form>
+        
+        <div class="contact-success" id="contactSuccess">
+          <h3>📧 Message Sent Successfully!</h3>
+          <p>Thank you for contacting MindUp! We've received your message and will get back to you within 24 hours.</p>
+          <p style="margin-top: 10px; font-size: 0.9rem;">
+            <strong>Confirmation sent to:</strong> <span id="userEmail"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <h2>Don't face it alone.</h2>
+      <p>Join MindUp today and start building your best self.</p>
+      <button class="btn" id="joinNowBtn">Join Now</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>MindUp</h3>
+        <p>Transforming stress into success through community support and structured growth.</p>
+        <div class="social-links">
+          <a href="#">📘</a>
+          <a href="#">📷</a>
+          <a href="#">🐦</a>
+          <a href="#">💼</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#join">Join Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <a href="#">Blog</a>
+        <a href="#">Success Stories</a>
+        <a href="#">Goal Setting Guide</a>
+        <a href="#">Mental Health Resources</a>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Community Guidelines</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <p>© 2025 MindUp — All rights reserved. | Made with ❤️ for students and young professionals</p>
+  </footer>
+
+  <!-- Existing Modals -->
+  <div class="modal" id="getStartedModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeGetStarted">&times;</span>
+      <h2>Get Started with MindUp</h2>
+      <p>Create your account and begin your journey to turn stress into success.</p>
+      
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+          <div class="error-message" id="nameError">Please enter your full name</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <div class="error-message" id="emailError">Please enter a valid email address</div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Create a password" minlength="6" required>
+          <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+        </div>
+        <button type="submit" class="btn" id="createAccountBtn" style="width: 100%;">Create Account</button>
+      </form>
+      
+      <!-- Email sent confirmation -->
+      <div class="email-sent-message" id="emailSentMessage">
+        <div class="email-icon">📧</div>
+        <h3>Verification Email Sent!</h3>
+        <p>We've sent a verification code to <strong id="sentEmail"></strong>. Please check your inbox and enter the code below.</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">If you don't see the email, check your spam folder.</p>
+      </div>
+      
+      <!-- Email Verification Section -->
+      <div class="email-verification" id="emailVerification">
+        <div class="email-icon">🔒</div>
+        <h3>Verify Your Email</h3>
+        <p>Enter the 6-digit verification code sent to your email:</p>
+        <div class="verification-code">
+          <input type="text" maxlength="1" id="code1" class="code-input">
+          <input type="text" maxlength="1" id="code2" class="code-input">
+          <input type="text" maxlength="1" id="code3" class="code-input">
+          <input type="text" maxlength="1" id="code4" class="code-input">
+          <input type="text" maxlength="1" id="code5" class="code-input">
+          <input type="text" maxlength="1" id="code6" class="code-input">
+        </div>
+        <button class="btn" id="verifyCodeBtn" style="width: 100%; margin-top: 15px;">Verify Code</button>
+        <p style="margin-top: 15px; font-size: 0.9rem;">Didn't receive the code? <a href="#" id="resendCode" style="color: #6C63FF;">Resend</a></p>
+      </div>
+      
+      <div class="success-message" id="accountSuccess">
+        <h3>🎉 Welcome to MindUp!</h3>
+        <p>Your account has been created successfully. Redirecting to your dashboard...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="learnMoreModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeLearnMore">&times;</span>
+      <h2>About MindUp</h2>
+      <p>MindUp is designed specifically for students and young professionals navigating the challenges of modern life. Our platform provides:</p>
+      <ul style="text-align: left; margin: 20px 0;">
+        <li style="margin-bottom: 10px;">Personalized goal-setting tools based on the SMART framework</li>
+        <li style="margin-bottom: 10px;">A supportive community of peers facing similar challenges</li>
+        <li style="margin-bottom: 10px;">Resources for mental wellness and professional development</li>
+        <li style="margin-bottom: 10px;">Progress tracking and achievement celebration</li>
+      </ul>
+      <p>Join thousands who have transformed their stress into stepping stones for success.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="joinModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeJoin">&times;</span>
+      <h2>Join MindUp Community</h2>
+      <p>Become part of our supportive community and start your transformation today.</p>
+      <div class="form-group">
+        <label for="communityEmail">Email Address</label>
+        <input type="email" id="communityEmail" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="interest">What are you most interested in?</label>
+        <select id="interest" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+          <option value="">Select an option</option>
+          <option value="goals">Setting SMART Goals</option>
+          <option value="community">Joining the Community</option>
+          <option value="growth">Personal & Professional Growth</option>
+        </select>
+      </div>
+      <button class="btn" id="joinCommunityFinalBtn" style="width: 100%;">Join Community</button>
+      <div class="success-message" id="communitySuccess">Welcome to the MindUp community! Check your email for next steps.</div>
+    </div>
+  </div>
+
+  <!-- New Onboarding Modal -->
+  <div class="onboarding-modal" id="onboardingModal">
+    <div class="onboarding-content">
+      <!-- Step 1: Welcome & Goals -->
+      <div class="onboarding-step active" id="step1">
+        <div class="step-progress">
+          <div class="progress-bar" style="width: 0%"></div>
+          <div class="step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Welcome</div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-label">Goals</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Community</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-label">Program</div>
+          </div>
+        </div>
+
+        <h2>🎉 Welcome to MindUp!</h2>
+        <p>We're excited to have you. Let's start by personalizing your experience.</p>
+        
+        <div style="text-align: left; margin: 30px 0;">
+          <h4>What brings you to MindUp today?</h4>
+          <div class="question-grid">
+            <div class="question-option" data-value="stress">
+              <div class="option-icon">😥</div>
+              <div>Manage my stress</div>
+            </div>
+            <div class="question-option" data-value="goals">
+              <div class="option-icon">🎯</div>
+              <div>Achieve my goals</div>
+            </div>
+            <div class="question-option" data-value="community">
+              <div class="option-icon">👥</div>
+              <div>Join a community</div>
+            </div>
+            <div class="question-option" data-value="growth">
+              <div class="option-icon">🌱</div>
+              <div>Personal growth</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="onboarding-actions">
+          <div></div>
+          <button class="btn" onclick="nextStep(2)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 2: SMART Goals -->
+      <div class="onboarding-step" id="step2">
+        <div class="step-progress">
+          <div class="progress-bar" style="width: 25%"></div>
+          <div class="step completed">
+            <div class="step-number">✓</div>
+            <div class="step-label">Welcome</div>
+          </div>
+          <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-label">Goals</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Community</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-label">Program</div>
+          </div>
+        </div>
+
+        <h2>🎯 Define Your First SMART Goal</h2>
+        <p>A SMART goal is Specific, Measurable, Achievable, Relevant, and Time-bound.</p>
+        
+        <div style="text-align: left; margin: 30px 0;">
+          <div class="form-group">
+            <label>My main goal:</label>
+            <input type="text" id="mainGoal" placeholder="Ex: Reduce my stress from 8/10 to 5/10 in 3 weeks" style="width: 100%;">
+          </div>
+          
+          <h4>Areas to improve:</h4>
+          <div class="question-grid">
+            <div class="question-option" data-value="productivity">
+              <div class="option-icon">⚡</div>
+              <div>Productivity</div>
+            </div>
+            <div class="question-option" data-value="wellness">
+              <div class="option-icon">🧘</div>
+              <div>Mental wellness</div>
+            </div>
+            <div class="question-option" data-value="career">
+              <div class="option-icon">💼</div>
+              <div>Career</div>
+            </div>
+            <div class="question-option" data-value="relationships">
+              <div class="option-icon">❤️</div>
+              <div>Relationships</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="onboarding-actions">
+          <button class="btn btn-secondary" onclick="prevStep(1)">Back</button>
+          <button class="btn" onclick="nextStep(3)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Community Selection -->
+      <div class="onboarding-step" id="step3">
+        <div class="step-progress">
+          <div class="progress-bar" style="width: 50%"></div>
+          <div class="step completed">
+            <div class="step-number">✓</div>
+            <div class="step-label">Welcome</div>
+          </div>
+          <div class="step completed">
+            <div class="step-number">✓</div>
+            <div class="step-label">Goals</div>
+          </div>
+          <div class="step active">
+            <div class="step-number">3</div>
+            <div class="step-label">Community</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-label">Program</div>
+          </div>
+        </div>
+
+        <h2>👥 Choose Your Communities</h2>
+        <p>Join peer groups that share your challenges and goals.</p>
+        
+        <div style="text-align: left; margin: 30px 0;">
+          <h4>Recommended communities:</h4>
+          <div id="communitySelection">
+            <div class="community-card">
+              <h4>🎓 engineering Students</h4>
+              <p>Share the stress of engineering studies</p>
+              <button class="btn" style="margin-top: 10px;" onclick="toggleCommunity(this)">Join</button>
+            </div>
+            <div class="community-card">
+              <h4>💻 Young Tech Pros</h4>
+              <p>Professional growth in tech</p>
+              <button class="btn btn-secondary" style="margin-top: 10px;" onclick="toggleCommunity(this)">Join</button>
+            </div>
+            <div class="community-card">
+              <h4>🌿 Personal Development</h4>
+              <p>Improve your habits and mindset</p>
+              <button class="btn btn-secondary" style="margin-top: 10px;" onclick="toggleCommunity(this)">Join</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="onboarding-actions">
+          <button class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+          <button class="btn" onclick="nextStep(4)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 4: 7-Day Program -->
+      <div class="onboarding-step" id="step4">
+        <div class="step-progress">
+          <div class="progress-bar" style="width: 75%"></div>
+          <div class="step completed">
+            <div class="step-number">✓</div>
+            <div class="step-label">Welcome</div>
+          </div>
+          <div class="step completed">
+            <div class="step-number">✓</div>
+            <div class="step-label">Goals</div>
+          </div>
+          <div class="step completed">
+            <div class="step-number">✓</div>
+            <div class="step-label">Community</div>
+          </div>
+          <div class="step active">
+            <div class="step-number">4</div>
+            <div class="step-label">Program</div>
+          </div>
+        </div>
+
+        <h2>🚀 Your "7 Days to Start" Program</h2>
+        <p>A guided journey for your first weeks on MindUp.</p>
+        
+        <div style="text-align: left; margin: 30px 0;">
+          <div class="program-day day-current">
+            <h4>📅 Day 1 - Today</h4>
+            <p>✅ Complete onboarding</p>
+            <p>✅ Define first goal</p>
+            <p>🔲 Introduce yourself to community</p>
+          </div>
+          
+          <div class="program-day day-upcoming">
+            <h4>📅 Day 2 - Tomorrow</h4>
+            <p>🔲 Join 3 discussions</p>
+            <p>🔲 Complete profile 100%</p>
+            <p>🔲 Discover 5 inspiring members</p>
+          </div>
+          
+          <div class="program-day day-upcoming">
+            <h4>📅 Day 3-7 - First Week</h4>
+            <p>🔲 Participate in live event</p>
+            <p>🔲 Give/receive feedback</p>
+            <p>🔲 Complete mini-challenge</p>
+          </div>
+        </div>
+
+        <div class="onboarding-actions">
+          <button class="btn btn-secondary" onclick="prevStep(3)">Back</button>
+          <button class="btn" onclick="completeOnboarding()">Start the Journey!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Dashboard Modal -->
+  <div class="dashboard-modal" id="dashboardModal">
+    <div class="dashboard-header">
+      <h1>Welcome to MindUp, <span id="userName">New Member</span>!</h1>
+      <p>Your journey to success starts here</p>
+    </div>
+    
+    <div class="dashboard-content">
+      <div class="dashboard-grid">
+        <!-- Card 1: Progress -->
+        <div class="dashboard-card">
+          <h3>📊 Your Progress</h3>
+          <div class="progress-ring">
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: #6C63FF;">🥚</div>
+              <div style="font-size: 0.9rem; color: #666;">New member</div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 15px;">
+            <div class="achievement-badge">
+              <span>🌱</span>
+              <span>First step</span>
+            </div>
+            <div class="achievement-badge">
+              <span>🎯</span>
+              <span>Goal set</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2: 7-Day Program -->
+        <div class="dashboard-card">
+          <h3>📅 7-Day Program</h3>
+          <div style="margin: 15px 0;">
+            <div style="display: flex; align-items: center; margin: 10px 0; padding: 10px; background: rgba(0, 191, 166, 0.1); border-radius: 8px;">
+              <span style="font-size: 1.2rem; margin-right: 10px;">✅</span>
+              <span><strong>Day 1</strong> - Onboarding completed</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 10px 0; padding: 10px; background: rgba(108, 99, 255, 0.1); border-radius: 8px;">
+              <span style="font-size: 1.2rem; margin-right: 10px;">🔄</span>
+              <span><strong>Day 2</strong> - Community introduction</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 10px 0; padding: 10px; background: rgba(224, 224, 224, 0.5); border-radius: 8px;">
+              <span style="font-size: 1.2rem; margin-right: 10px;">🔲</span>
+              <span><strong>Day 3</strong> - First challenge</span>
+            </div>
+          </div>
+          <button class="btn" style="width: 100%; margin-top: 10px;" onclick="showNextSteps()">
+            See what's next
+          </button>
+        </div>
+        
+        <!-- Card 3: Goals -->
+        <div class="dashboard-card">
+          <h3>🎯 Your Goals</h3>
+          <div id="goalsList">
+            <div class="community-card">
+              <h4 id="displayGoal">Loading...</h4>
+              <p>🔄 In progress - 0% completed</p>
+              <button class="btn" style="margin-top: 10px;" onclick="updateGoalProgress()">
+                Mark progress
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 4: Communities -->
+        <div class="dashboard-card">
+          <h3>👥 Your Communities</h3>
+          <div id="communitiesList">
+            <div class="community-card">
+              <h4>🌟 MindUp Community</h4>
+              <p>245 active members</p>
+              <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="btn" style="flex: 1;">Explore</button>
+                <button class="btn btn-secondary" style="flex: 1;">Discuss</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Next Steps Section -->
+      <div id="nextSteps" style="display: none; margin-top: 40px;">
+        <h2 style="color: #6C63FF; text-align: center; margin-bottom: 30px;">🔄 Recommended Next Steps</h2>
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>🤝 Find a Buddy</h3>
+            <p>Connect with an experienced member who shares your interests</p>
+            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="findBuddy()">
+              Find a partner
+            </button>
+          </div>
+          
+          <div class="dashboard-card">
+            <h3>📝 Gratitude Journal</h3>
+            <p>Start your daily mindfulness practice</p>
+            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startGratitudeJournal()">
+              Write first entry
+            </button>
+          </div>
+          
+          <div class="dashboard-card">
+            <h3>🎪 Upcoming Events</h3>
+            <p>Join our next live workshops</p>
+            <div style="margin: 15px 0;">
+              <div style="padding: 10px; background: rgba(108, 99, 255, 0.1); border-radius: 8px; margin: 5px 0;">
+                <strong>🕒 Tomorrow 6PM</strong><br>
+                Welcome virtual coffee
+              </div>
+              <div style="padding: 10px; background: rgba(108, 99, 255, 0.1); border-radius: 8px; margin: 5px 0;">
+                <strong>🗓️ Friday 8PM</strong><br>
+                SMART Goals workshop
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <button class="btn" onclick="closeDashboard()" style="margin-right: 15px;">
+          Explore MindUp
+        </button>
+        <button class="btn btn-secondary" onclick="closeDashboard()">
+          Continue later
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==================== GLOBAL VARIABLES ====================
+    let currentStep = 1;
+    const totalSteps = 4;
+    let generatedCode = '';
+    let currentUserEmail = '';
+    const userData = {
+      interests: [],
+      goals: [],
+      communities: [],
+      profile: {},
+      progress: {
+        day1: true,
+        day2: false,
+        day3: false,
+        day4: false,
+        day5: false,
+        day6: false,
+        day7: false
+      }
+    };
+
+    // ==================== ONBOARDING FUNCTIONS ====================
+    function nextStep(step) {
+      if (step > currentStep) {
+        if (!validateStep(currentStep)) return;
+      }
+      
+      document.getElementById(`step${currentStep}`).classList.remove('active');
+      document.getElementById(`step${step}`).classList.add('active');
+      currentStep = step;
+      
+      updateProgressBar(step);
+      updateStepProgress(step);
+    }
+
+    function prevStep(step) {
+      document.getElementById(`step${currentStep}`).classList.remove('active');
+      document.getElementById(`step${step}`).classList.add('active');
+      currentStep = step;
+      
+      updateProgressBar(step);
+      updateStepProgress(step);
+    }
+
+    function updateProgressBar(step) {
+      const progress = ((step - 1) / (totalSteps - 1)) * 100;
+      document.querySelector('.progress-bar').style.width = `${progress}%`;
+    }
+
+    function updateStepProgress(currentStep) {
+      const steps = document.querySelectorAll('.step');
+      steps.forEach((step, index) => {
+        const stepNumber = index + 1;
+        if (stepNumber < currentStep) {
+          step.classList.add('completed');
+          step.classList.remove('active');
+          step.querySelector('.step-number').textContent = '✓';
+        } else if (stepNumber === currentStep) {
+          step.classList.add('active');
+          step.classList.remove('completed');
+          step.querySelector('.step-number').textContent = stepNumber;
+        } else {
+          step.classList.remove('active', 'completed');
+          step.querySelector('.step-number').textContent = stepNumber;
+        }
+      });
+    }
+
+    function validateStep(step) {
+      switch(step) {
+        case 1:
+          const selectedInterests = document.querySelectorAll('#step1 .question-option.selected');
+          if (selectedInterests.length === 0) {
+            alert('Please select at least one area of interest');
+            return false;
+          }
+          userData.interests = Array.from(selectedInterests).map(opt => opt.getAttribute('data-value'));
+          break;
+        
+        case 2:
+          const mainGoal = document.getElementById('mainGoal').value.trim();
+          if (!mainGoal) {
+            alert('Please define your main goal');
+            return false;
+          }
+          userData.goals = [mainGoal];
+          break;
+        
+        case 3:
+          const selectedCommunities = document.querySelectorAll('#communitySelection .btn:not(.btn-secondary)');
+          if (selectedCommunities.length === 0) {
+            alert('Please join at least one community');
+            return false;
+          }
+          break;
+      }
+      return true;
+    }
+
+    function toggleCommunity(button) {
+      if (button.classList.contains('btn-secondary')) {
+        button.classList.remove('btn-secondary');
+        button.textContent = 'Join';
+        // Add to user data
+        const communityName = button.closest('.community-card').querySelector('h4').textContent;
+        if (!userData.communities.includes(communityName)) {
+          userData.communities.push(communityName);
+        }
+      } else {
+        button.classList.add('btn-secondary');
+        button.textContent = 'Leave';
+      }
+    }
+
+    function completeOnboarding() {
+      // Save user data
+      console.log('User data saved:', userData);
+      
+      // Close onboarding and open dashboard
+      document.getElementById('onboardingModal').style.display = 'none';
+      document.getElementById('dashboardModal').style.display = 'block';
+      
+      // Initialize dashboard with user data
+      initializeDashboard();
+    }
+
+    // ==================== DASHBOARD FUNCTIONS ====================
+    function initializeDashboard() {
+      // Update user name
+      document.getElementById('userName').textContent = userData.profile.name || 'New Member';
+      
+      // Update goals
+      const displayGoal = document.getElementById('displayGoal');
+      if (userData.goals.length > 0) {
+        displayGoal.textContent = userData.goals[0];
+      }
+      
+      // Initialize question options
+      initializeQuestionOptions();
+    }
+
+    function showNextSteps() {
+      document.getElementById('nextSteps').style.display = 'block';
+    }
+
+    function updateGoalProgress() {
+      alert('🎉 Congratulations! You made progress toward your goal.\n\nProgress updated: 25% completed');
+    }
+
+    function findBuddy() {
+      alert('🔍 Finding a partner...\n\nWe\'ll match you with a buddy who shares your interests within 24 hours!');
+    }
+
+    function startGratitudeJournal() {
+      alert('📖 Opening gratitude journal...\n\nTake 5 minutes to write 3 things you\'re grateful for today.');
+    }
+
+    function closeDashboard() {
+      document.getElementById('dashboardModal').style.display = 'none';
+      alert('🌟 Don\'t forget to come back tomorrow for Day 2 of your program!');
+    }
+
+    // ==================== INITIALIZATION ====================
+    function initializeQuestionOptions() {
+      document.querySelectorAll('.question-option').forEach(option => {
+        option.addEventListener('click', function() {
+          this.classList.toggle('selected');
+        });
+      });
+    }
+
+    // ==================== EXISTING FUNCTIONALITY ====================
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get modal elements
+      const getStartedModal = document.getElementById('getStartedModal');
+      const learnMoreModal = document.getElementById('learnMoreModal');
+      const joinModal = document.getElementById('joinModal');
+      const onboardingModal = document.getElementById('onboardingModal');
+      const dashboardModal = document.getElementById('dashboardModal');
+      
+      // Get button elements
+      const getStartedBtn = document.getElementById('getStartedBtn');
+      const learnMoreBtn = document.getElementById('learnMoreBtn');
+      const joinNowBtn = document.getElementById('joinNowBtn');
+      const joinCommunityBtn = document.getElementById('joinCommunityBtn');
+      const joinSectionBtn = document.getElementById('joinSectionBtn');
+      
+      // Get close buttons
+      const closeGetStarted = document.getElementById('closeGetStarted');
+      const closeLearnMore = document.getElementById('closeLearnMore');
+      const closeJoin = document.getElementById('closeJoin');
+      
+      // Get form elements
+      const signupForm = document.getElementById('signupForm');
+      const contactForm = document.getElementById('contactForm');
+      const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+      const createAccountBtn = document.getElementById('createAccountBtn');
+      const joinCommunityFinalBtn = document.getElementById('joinCommunityFinalBtn');
+      const verifyCodeBtn = document.getElementById('verifyCodeBtn');
+      const resendCode = document.getElementById('resendCode');
+      
+      // Get success messages and verification section
+      const accountSuccess = document.getElementById('accountSuccess');
+      const communitySuccess = document.getElementById('communitySuccess');
+      const contactSuccess = document.getElementById('contactSuccess');
+      const userEmail = document.getElementById('userEmail');
+      const emailVerification = document.getElementById('emailVerification');
+      const emailSentMessage = document.getElementById('emailSentMessage');
+      const sentEmail = document.getElementById('sentEmail');
+      
+      // Verification code inputs
+      const codeInputs = document.querySelectorAll('.code-input');
+      
+      // Initialize question options
+      initializeQuestionOptions();
+
+      // Open modals when buttons are clicked
+      getStartedBtn.addEventListener('click', function() {
+        getStartedModal.style.display = 'flex';
+        resetForms();
+      });
+      
+      learnMoreBtn.addEventListener('click', function() {
+        learnMoreModal.style.display = 'flex';
+      });
+      
+      joinNowBtn.addEventListener('click', function() {
+        joinModal.style.display = 'flex';
+        resetForms();
+      });
+      
+      joinCommunityBtn.addEventListener('click', function() {
+        joinModal.style.display = 'flex';
+        resetForms();
+      });
+
+      joinSectionBtn.addEventListener('click', function() {
+        joinModal.style.display = 'flex';
+        resetForms();
+      });
+
+      // Close modals when close buttons are clicked
+      closeGetStarted.addEventListener('click', function() {
+        getStartedModal.style.display = 'none';
+        resetForms();
+      });
+      
+      closeLearnMore.addEventListener('click', function() {
+        learnMoreModal.style.display = 'none';
+      });
+      
+      closeJoin.addEventListener('click', function() {
+        joinModal.style.display = 'none';
+        resetForms();
+      });
+
+      // Close modals when clicking outside
+      window.addEventListener('click', function(event) {
+        if (event.target === getStartedModal) {
+          getStartedModal.style.display = 'none';
+          resetForms();
+        }
+        if (event.target === learnMoreModal) {
+          learnMoreModal.style.display = 'none';
+        }
+        if (event.target === joinModal) {
+          joinModal.style.display = 'none';
+          resetForms();
+        }
+        if (event.target === onboardingModal) {
+          onboardingModal.style.display = 'none';
+        }
+        if (event.target === dashboardModal) {
+          dashboardModal.style.display = 'none';
+        }
+      });
+
+      // Handle form submission
+      signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        createAccount();
+      });
+
+      // Handle contact form submission
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('contactName').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        const subject = document.getElementById('contactSubject').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+        
+        if (!name || !email || !subject || !message) {
+          alert('Please fill in all fields.');
+          return;
+        }
+        
+        if (!isValidEmail(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        contactSubmitBtn.innerHTML = 'Sending...';
+        contactSubmitBtn.disabled = true;
+        
+        setTimeout(() => {
+          currentUserEmail = email;
+          simulateContactEmailToTeam(name, email, subject, message);
+          simulateConfirmationEmailToUser(email, name);
+          
+          contactForm.style.display = 'none';
+          userEmail.textContent = email;
+          contactSuccess.style.display = 'block';
+          
+          contactSubmitBtn.innerHTML = 'Send Message';
+          contactSubmitBtn.disabled = false;
+          
+          setTimeout(() => {
+            contactForm.style.display = 'block';
+            contactSuccess.style.display = 'none';
+            contactForm.reset();
+          }, 5000);
+        }, 2000);
+      });
+
+      // Handle account creation
+      function createAccount() {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        
+        resetErrors();
+        
+        let isValid = true;
+        
+        if (!name) {
+          showError('nameError', 'name');
+          isValid = false;
+        }
+        
+        if (!email || !isValidEmail(email)) {
+          showError('emailError', 'email');
+          isValid = false;
+        }
+        
+        if (!password || password.length < 6) {
+          showError('passwordError', 'password');
+          isValid = false;
+        }
+        
+        if (!isValid) return;
+        
+        // Store user data for onboarding
+        userData.profile.name = name;
+        userData.profile.email = email;
+        currentUserEmail = email;
+        
+        createAccountBtn.innerHTML = 'Creating Account...';
+        createAccountBtn.classList.add('btn-loading');
+        createAccountBtn.disabled = true;
+        
+        setTimeout(() => {
+          generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+          
+          signupForm.style.display = 'none';
+          sentEmail.textContent = email;
+          emailSentMessage.style.display = 'block';
+          
+          createAccountBtn.innerHTML = 'Create Account';
+          createAccountBtn.classList.remove('btn-loading');
+          createAccountBtn.disabled = false;
+          
+          simulateEmailSending(email, generatedCode);
+          
+          setTimeout(() => {
+            emailSentMessage.style.display = 'none';
+            emailVerification.style.display = 'block';
+            codeInputs[0].focus();
+          }, 3000);
+        }, 1500);
+      }
+      
+      function simulateEmailSending(email, code) {
+        console.log(`Sending verification email to ${email} with code: ${code}`);
+        alert(`📧 Verification email sent to: ${email}\n\nVerification Code: ${code}\n\n(In a real application, this would be an actual email)`);
+      }
+      
+      // Handle code verification
+      verifyCodeBtn.addEventListener('click', function() {
+        const enteredCode = Array.from(codeInputs).map(input => input.value).join('');
+        
+        if (enteredCode.length !== 6) {
+          alert('Please enter the complete 6-digit code');
+          return;
+        }
+        
+        if (enteredCode === generatedCode) {
+          verifyCodeBtn.innerHTML = 'Verifying...';
+          verifyCodeBtn.disabled = true;
+          
+          setTimeout(() => {
+            emailVerification.style.display = 'none';
+            accountSuccess.style.display = 'block';
+            
+            verifyCodeBtn.innerHTML = 'Verify Code';
+            verifyCodeBtn.disabled = false;
+            
+            setTimeout(function() {
+              // Close signup modal and open onboarding
+              getStartedModal.style.display = 'none';
+              document.getElementById('onboardingModal').style.display = 'block';
+              resetForms();
+            }, 2000);
+          }, 1000);
+        } else {
+          alert('Invalid verification code. Please try again.');
+          codeInputs.forEach(input => input.value = '');
+          codeInputs[0].focus();
+        }
+      });
+      
+      // Handle resend code
+      resendCode.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        resendCode.innerHTML = 'Sending...';
+        resendCode.style.pointerEvents = 'none';
+        
+        generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+        
+        simulateEmailSending(currentUserEmail, generatedCode);
+        
+        setTimeout(() => {
+          resendCode.innerHTML = 'Resend';
+          resendCode.style.pointerEvents = 'auto';
+          alert('Verification code has been resent to your email.');
+        }, 2000);
+      });
+      
+      // Handle code input navigation
+      codeInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+          if (input.value.length === 1 && index < codeInputs.length - 1) {
+            codeInputs[index + 1].focus();
+          }
+          
+          if (index === codeInputs.length - 1 && input.value.length === 1) {
+            const allFilled = Array.from(codeInputs).every(input => input.value.length === 1);
+            if (allFilled) {
+              verifyCodeBtn.click();
+            }
+          }
+        });
+        
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
+            codeInputs[index - 1].focus();
+          }
+        });
+      });
+      
+      // Handle community join form
+      joinCommunityFinalBtn.addEventListener('click', function() {
+        const email = document.getElementById('communityEmail').value;
+        const interest = document.getElementById('interest').value;
+        
+        if (!email || !interest) {
+          alert('Please fill in all fields');
+          return;
+        }
+        
+        joinCommunityFinalBtn.innerHTML = 'Joining...';
+        joinCommunityFinalBtn.disabled = true;
+        
+        setTimeout(() => {
+          communitySuccess.style.display = 'block';
+          joinCommunityFinalBtn.innerHTML = 'Join Community';
+          joinCommunityFinalBtn.disabled = false;
+          
+          setTimeout(function() {
+            communitySuccess.style.display = 'none';
+            joinModal.style.display = 'none';
+            resetForms();
+          }, 3000);
+        }, 1000);
+      });
+
+      // Helper functions
+      function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+      
+      function showError(errorId, inputId) {
+        document.getElementById(errorId).style.display = 'block';
+        document.getElementById(inputId).classList.add('error');
+      }
+      
+      function resetErrors() {
+        document.querySelectorAll('.error-message').forEach(el => {
+          el.style.display = 'none';
+        });
+        document.querySelectorAll('input').forEach(el => {
+          el.classList.remove('error');
+        });
+      }
+      
+      function resetForms() {
+        signupForm.reset();
+        signupForm.style.display = 'block';
+        emailVerification.style.display = 'none';
+        emailSentMessage.style.display = 'none';
+        accountSuccess.style.display = 'none';
+        communitySuccess.style.display = 'none';
+        codeInputs.forEach(input => input.value = '');
+        resetErrors();
+        
+        createAccountBtn.innerHTML = 'Create Account';
+        createAccountBtn.classList.remove('btn-loading');
+        createAccountBtn.disabled = false;
+        joinCommunityFinalBtn.innerHTML = 'Join Community';
+        joinCommunityFinalBtn.disabled = false;
+        verifyCodeBtn.innerHTML = 'Verify Code';
+        verifyCodeBtn.disabled = false;
+        resendCode.innerHTML = 'Resend';
+        resendCode.style.pointerEvents = 'auto';
+        
+        generatedCode = '';
+        currentUserEmail = '';
+      }
+
+      function simulateContactEmailToTeam(name, email, subject, message) {
+        console.log('=== CONTACT FORM SUBMISSION ===');
+        console.log(`📨 New message from: ${name} (${email})`);
+        console.log(`📋 Subject: ${subject}`);
+        console.log(`💬 Message: ${message}`);
+        console.log('=== END OF MESSAGE ===');
+      }
+
+      function simulateConfirmationEmailToUser(email, name) {
+        console.log('=== CONFIRMATION EMAIL ===');
+        console.log(`To: ${email}`);
+        console.log(`Subject: We've received your message!`);
+        console.log(`Hi ${name}, thank you for contacting MindUp!`);
+        console.log('=== END OF EMAIL ===');
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      const elementsToAnimate = document.querySelectorAll('.features h3, .box, .cta-content, .about-card, .benefit-card');
+      elementsToAnimate.forEach(el => {
+        observer.observe(el);
+      });
+
+      // Button glow effect
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+          button.style.boxShadow = '0 0 15px rgba(255, 211, 105, 0.7)';
+        });
+        button.addEventListener('mouseleave', () => {
+          if (!button.matches(':hover')) {
+            button.style.boxShadow = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
